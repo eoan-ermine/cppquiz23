@@ -8,6 +8,6 @@ The constructor is not a destructor or a deallocation function, nor is it defaul
 
 For the destructor, there are special rules.
 §[except.spec]¶8:
-> The exception specification for an implicitly-declared destructor, or a destructor without a noexcept-specifier, is potentially-throwing if and only if any of the destructors for any of its potentially constructed subojects is potentially throwing.
+> The exception specification for an implicitly-declared destructor, or a destructor without a noexcept-specifier, is potentially-throwing if and only if any of the destructors for any of its potentially constructed subobjects has a potentially-throwing exception specification (...).
 
-Note that this rule also applies to our user provided destructor! We don't provide a noexcept-specifier, and `S` does not have any subobjects (members or bases) with potentially throwing destructors. So unlike the constructor, the destructor is potentially throwing.
+Note that this rule also applies to our user provided destructor! We don't provide a noexcept-specifier, and `S` does not have any subobjects (members or bases) with potentially throwing destructors. So unlike the constructor, the destructor is not potentially throwing.
